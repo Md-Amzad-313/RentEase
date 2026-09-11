@@ -2,6 +2,7 @@ import React from 'react';
 import Hero from '../components/home/Hero';
 import CategorySection from '../components/home/CategorySection';
 import PopularRentals from '../components/home/PopularRentals';
+import HowItWorks from '../components/home/HowItWorks';
 
 /**
  * Home Page
@@ -9,6 +10,7 @@ import PopularRentals from '../components/home/PopularRentals';
  * Part 2.1: Hero Section.
  * Part 2.2: Browse Categories Section.
  * Part 2.3: Popular Rentals Section.
+ * Part 2.4: How RentEase Works Section.
  */
 export default function Home() {
   return (
@@ -16,6 +18,7 @@ export default function Home() {
       <Hero />
       <CategorySection />
       <PopularRentals />
+      <HowItWorks />
     </div>
   );
 }
