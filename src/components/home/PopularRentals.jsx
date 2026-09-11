@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+
 import ProductCard from './ProductCard';
 import { POPULAR_PRODUCTS } from '../../data/products';
 

@@ -24,7 +24,7 @@ export default function CategoryCard({
   const [imageError, setImageError] = useState(false);
 
   return (
-    <div className="group relative flex flex-col justify-between bg-white rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-brand-200/80 transition-all duration-300 p-6 sm:p-8 lg:p-10 overflow-hidden">
+    <div className="group relative flex flex-col justify-between bg-white rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-brand-200/80 transition-all duration-300 p-6 sm:p-8 lg:p-10 overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500">
       {/* Subtle top-right ambient glow */}
       <div
         className="absolute -top-16 -right-16 w-48 h-48 bg-brand-100/40 rounded-full blur-3xl -z-10 group-hover:bg-brand-200/50 transition-colors duration-300 pointer-events-none"

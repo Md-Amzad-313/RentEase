@@ -58,7 +58,7 @@ export default function WhyChooseRentEase() {
             return (
               <div
                 key={benefit.title}
-                className="rounded-2xl bg-white p-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+                className="rounded-2xl bg-white p-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
               >
                 <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-brand-50">
                   <Icon className="h-7 w-7 text-brand-600" />
