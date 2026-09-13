@@ -15,6 +15,7 @@ import Checkout from '../pages/Checkout';
 import Dashboard from '../pages/Dashboard';
 import Admin from '../pages/Admin';
 import NotFound from '../pages/NotFound';
+import ProductDetail from '../pages/ProductDetail';
 
 /**
  * Centralized Application Routes (Part 1 Foundation)
@@ -27,6 +28,7 @@ export default function AppRoutes() {
         <Route element={<PublicLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/products/:productId" element={<ProductDetail />} />
           <Route path="/categories" element={<Categories />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />

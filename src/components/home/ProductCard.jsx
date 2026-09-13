@@ -104,7 +104,7 @@ export default function ProductCard({ product }) {
 
       {/* CTA Footer */}
       <div className="px-5 pb-5 pt-0">
-        <Link to="/products" className="block w-full">
+        <Link to={`/products/${product.id}`} className="block w-full">
           <Button
             variant="outline"
             size="md"
