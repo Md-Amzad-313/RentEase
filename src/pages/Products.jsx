@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import { POPULAR_PRODUCTS } from '../data/products';
 import ProductCard from '../components/home/ProductCard';
+import { X } from 'lucide-react';
 
 /**
  * Products Page – Rental Collection
