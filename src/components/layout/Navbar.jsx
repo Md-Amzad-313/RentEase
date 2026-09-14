@@ -8,6 +8,7 @@ import {
   Sparkles,
   ArrowRight,
   Armchair,
+  User,
 } from 'lucide-react';
 import Button from '../ui/Button';
 import { useCart } from '../../context/CartContext';
@@ -102,6 +103,16 @@ export default function Navbar() {
               )}
             </Link>
 
+            {/* Dashboard Quick Link */}
+            <Link
+              to="/dashboard"
+              className="p-2.5 text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-xl transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
+              title="My Rentals Dashboard"
+              aria-label="My Rentals Dashboard"
+            >
+              <User className="w-5 h-5" />
+            </Link>
+
             <div className="h-6 w-px bg-slate-200 mx-1" />
 
             {/* Login CTA */}
@@ -161,6 +172,20 @@ export default function Navbar() {
                 {link.name}
               </NavLink>
             ))}
+
+            <NavLink
+              to="/dashboard"
+              onClick={closeMobileMenu}
+              className={({ isActive }) =>
+                `block px-4 py-2.5 rounded-xl text-base font-medium transition-colors ${
+                  isActive
+                    ? 'text-brand-600 bg-brand-50 font-semibold'
+                    : 'text-slate-700 hover:text-slate-900 hover:bg-slate-50'
+                }`
+              }
+            >
+              My Dashboard
+            </NavLink>
 
             <div className="pt-4 border-t border-slate-100 flex flex-col gap-2.5">
               <Link to="/products" onClick={closeMobileMenu} className="w-full">
