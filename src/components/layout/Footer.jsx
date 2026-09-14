@@ -27,6 +27,7 @@ export default function Footer() {
     { name: 'Terms of Service', path: '/about' },
     { name: 'Privacy Policy', path: '/about' },
     { name: 'Damage Protection', path: '/about' },
+    { name: 'Admin Portal', path: '/admin' },
   ];
 
   return (
