@@ -1,4 +1,4 @@
-﻿import React, { useState } from "react";
+import React, { useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import {
   ArrowLeft,
@@ -20,6 +20,7 @@ import { POPULAR_PRODUCTS } from "../data/products";
 import ProductCard from "../components/home/ProductCard";
 import Button from "../components/ui/Button";
 import Badge from "../components/ui/Badge";
+import { useCart } from "../context/CartContext";
 
 // ── Tenure configuration ──────────────────────────────────────────────────────
 const TENURES = [
@@ -66,6 +67,7 @@ const DELIVERY_INFO = [
 export default function ProductDetail() {
   const { productId } = useParams();
   const navigate      = useNavigate();
+  const { addItem }   = useCart();
 
   const [selectedTenure, setSelectedTenure] = useState(TENURES[1]); // 6 months default
   const [imageLoaded,    setImageLoaded]    = useState(false);
@@ -114,10 +116,20 @@ export default function ProductDetail() {
   // Frontend-only rental total
   const rentalTotal = monthlyRent * selectedTenure.months;
 
-  const handleRentNow   = () => navigate("/checkout");
+  const handleRentNow = () => navigate("/checkout");
+
   const handleAddToCart = () => {
+    addItem({
+      productId: product.id,
+      name,
+      image,
+      category,
+      monthlyRent,
+      securityDeposit,
+      duration: selectedTenure.label, // e.g. "3 Months"
+    });
     setAddedToCart(true);
-    setTimeout(() => setAddedToCart(false), 2200);
+    setTimeout(() => setAddedToCart(false), 2500);
   };
 
   return (
@@ -418,6 +430,15 @@ export default function ProductDetail() {
                 >
                   {addedToCart ? "Added to Cart ✓" : "Add to Cart"}
                 </Button>
+                {addedToCart && (
+                  <Link
+                    to="/cart"
+                    className="flex items-center justify-center gap-1.5 text-sm font-medium text-brand-600 hover:text-brand-700 transition-colors py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 rounded"
+                  >
+                    <ShoppingCart className="w-4 h-4" aria-hidden="true" />
+                    View Cart
+                  </Link>
+                )}
               </div>
 
               {/* Trust nudges */}

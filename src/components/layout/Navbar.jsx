@@ -10,9 +10,11 @@ import {
   Armchair,
 } from 'lucide-react';
 import Button from '../ui/Button';
+import { useCart } from '../../context/CartContext';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { totalItemCount } = useCart();
 
   const navLinks = [
     { name: 'Home', path: '/' },
@@ -90,12 +92,14 @@ export default function Navbar() {
               to="/cart"
               className="relative p-2.5 text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-xl transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
               title="View Cart"
-              aria-label="View Cart"
+              aria-label={`View Cart${totalItemCount > 0 ? `, ${totalItemCount} items` : ''}`}
             >
               <ShoppingCart className="w-5 h-5" />
-              <span className="absolute top-1 right-1 w-4 h-4 bg-brand-600 text-[10px] font-bold text-white rounded-full flex items-center justify-center">
-                0
-              </span>
+              {totalItemCount > 0 && (
+                <span className="absolute top-1 right-1 w-4 h-4 bg-brand-600 text-[10px] font-bold text-white rounded-full flex items-center justify-center">
+                  {totalItemCount > 99 ? '99+' : totalItemCount}
+                </span>
+              )}
             </Link>
 
             <div className="h-6 w-px bg-slate-200 mx-1" />
@@ -114,12 +118,14 @@ export default function Navbar() {
               to="/cart"
               onClick={closeMobileMenu}
               className="relative p-2 text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-lg"
-              aria-label="Cart"
+              aria-label={`Cart${totalItemCount > 0 ? `, ${totalItemCount} items` : ''}`}
             >
               <ShoppingCart className="w-5 h-5" />
-              <span className="absolute top-0.5 right-0.5 w-3.5 h-3.5 bg-brand-600 text-[9px] font-bold text-white rounded-full flex items-center justify-center">
-                0
-              </span>
+              {totalItemCount > 0 && (
+                <span className="absolute top-0.5 right-0.5 w-3.5 h-3.5 bg-brand-600 text-[9px] font-bold text-white rounded-full flex items-center justify-center">
+                  {totalItemCount > 99 ? '99+' : totalItemCount}
+                </span>
+              )}
             </Link>
 
             <button
