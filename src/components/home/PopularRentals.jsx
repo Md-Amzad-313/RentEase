@@ -32,13 +32,12 @@ export default function PopularRentals() {
               id="popular-rentals-heading"
               className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-3"
             >
-              Rent what you need, when you need it
+              Popular rental choices
             </h2>
 
             {/* Supporting Text */}
             <p className="text-base sm:text-lg text-slate-600 leading-relaxed text-balance">
-              Explore some of our most popular furniture and appliances,
-              available on flexible monthly plans.
+              Top-selected furniture and appliance rentals on flexible 3, 6, and 12-month tenures.
             </p>
           </div>
 

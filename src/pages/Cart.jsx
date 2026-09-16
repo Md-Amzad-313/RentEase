@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
   ShoppingCart,
@@ -45,9 +45,9 @@ export default function Cart() {
           <div className="w-20 h-20 bg-slate-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
             <ShoppingCart className="w-9 h-9 text-slate-400" aria-hidden="true" />
           </div>
-          <h1 className="text-2xl font-bold text-slate-900 mb-2">Your cart is empty</h1>
+          <h1 className="text-2xl font-bold text-slate-900 mb-2">Your rental cart is empty</h1>
           <p className="text-slate-500 mb-8 leading-relaxed">
-            Browse our rental collection and add items to get started.
+            Browse our rental collection and select items to get started.
           </p>
           <Link to="/products">
             <Button variant="primary" size="lg" icon={Package} iconPosition="left">
@@ -205,7 +205,7 @@ export default function Cart() {
           </div>
 
           {/* ── Summary card ─────────────────────────────────────────────────── */}
-          <aside aria-label="Order summary">
+          <aside aria-label="Rental summary">
             <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 lg:sticky lg:top-6">
               <h2 className="text-base font-bold text-slate-800 mb-4">Rental Summary</h2>
 

@@ -33,7 +33,7 @@ export default function CategorySection() {
       { name: 'Wardrobes', icon: Layers },
     ],
     ctaText: 'Explore Furniture',
-    ctaLink: '/products',
+    ctaLink: '/products?category=Furniture',
     imageSrc:
       'https://images.unsplash.com/photo-1540518614846-7ede433c4ef0?auto=format&fit=crop&w=800&q=80',
     imageAlt: 'Comfortable modern furniture including bed and bedroom set',
@@ -42,7 +42,7 @@ export default function CategorySection() {
   const appliancesCategory = {
     title: 'Appliances',
     description:
-      'Get the essential appliances you need without the upfront cost.',
+      'Get essential home and kitchen appliances without large upfront purchases.',
     tag: 'Home Essentials',
     icon: Tv,
     examples: [
@@ -53,7 +53,7 @@ export default function CategorySection() {
       { name: 'Air Conditioners', icon: AirVent },
     ],
     ctaText: 'Explore Appliances',
-    ctaLink: '/products',
+    ctaLink: '/products?category=Appliances',
     imageSrc:
       'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80',
     imageAlt: 'Modern home appliances in a contemporary kitchen',
@@ -70,7 +70,7 @@ export default function CategorySection() {
         <div className="max-w-2xl mx-auto text-center mb-12 sm:mb-16">
           {/* Section Eyebrow */}
           <span className="inline-block text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 border border-brand-100/80 px-3.5 py-1 rounded-full mb-3.5">
-            EXPLORE RENTALS
+            RENTAL CATEGORIES
           </span>
 
           {/* Section Main Heading */}
@@ -78,13 +78,12 @@ export default function CategorySection() {
             id="categories-heading"
             className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4"
           >
-            Everything you need for your space
+            What can you rent?
           </h2>
 
           {/* Supporting Text */}
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed text-balance">
-            From comfortable furniture to everyday appliances, rent what you
-            need with flexible monthly plans.
+            Explore quality bedroom sets, living room seating, work desks, and essential home appliances.
           </p>
         </div>
 

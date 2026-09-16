@@ -29,7 +29,7 @@ export default function WhyChooseRentEase() {
       icon: MoveHorizontal,
       title: "Easy Relocation",
       description:
-        "Move with less hassle with convenient pickup and return options.",
+        "Relocate within the city or schedule a pickup when your tenure ends.",
     },
   ];
 
@@ -42,12 +42,11 @@ export default function WhyChooseRentEase() {
           </span>
 
           <h2 className="mb-4 text-3xl font-extrabold text-slate-900 sm:text-4xl">
-            Everything you need. More flexibility.
+            Why rent instead of buying?
           </h2>
 
           <p className="text-base text-slate-600 sm:text-lg">
-            Rent the essentials you need without the upfront cost, long-term
-            commitment, or hassle of moving bulky items.
+            Avoid heavy upfront purchases and rigid ownership. Rent essentials for 3, 6, or 12 months with routine maintenance and scheduled pickup included.
           </p>
         </div>
 

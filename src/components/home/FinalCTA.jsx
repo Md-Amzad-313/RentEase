@@ -11,12 +11,11 @@ export default function FinalCTA() {
           </p>
 
           <h2 className="mx-auto max-w-3xl text-3xl font-extrabold text-white sm:text-4xl lg:text-5xl">
-            Make your space yours — without the long-term commitment.
+            Ready to furnish your space on your terms?
           </h2>
 
           <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-300 sm:text-lg">
-            Find the furniture and appliances you need, choose a flexible rental
-            plan, and enjoy a hassle-free experience.
+            Browse our rental catalog, select a 3, 6, or 12-month tenure, and submit your rental request in minutes.
           </p>
 
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">

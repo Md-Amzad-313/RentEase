@@ -196,25 +196,28 @@ export default function Checkout() {
             </div>
 
             <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-2">
-              Rental Request Submitted ✅
+              Rental Request Submitted
             </h1>
-            <p className="text-slate-600 text-base sm:text-lg max-w-lg mx-auto mb-6 font-medium">
-              &ldquo;Your rental request has been submitted successfully.&rdquo;
+            <p className="text-slate-600 text-base max-w-lg mx-auto mb-3 font-medium">
+              Your rental request has been recorded for this frontend preview.
             </p>
+            <div className="bg-amber-50 border border-amber-200/80 rounded-xl p-3 text-xs text-amber-800 max-w-md mx-auto mb-6">
+              Payment has not been processed in this frontend demo. No real charge has been made.
+            </div>
 
             <div className="inline-flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-sm text-slate-700">
-              <span className="text-slate-500 font-medium">Request Reference:</span>
+              <span className="text-slate-500 font-medium">Demo Reference:</span>
               <span className="font-mono font-bold text-slate-900">{orderSummaryData.orderId}</span>
             </div>
           </div>
 
           {/* Details Card */}
           <div className="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-xs space-y-6 mb-8">
-            {/* Order Summary Header */}
+            {/* Rental Summary Header */}
             <div className="flex items-center justify-between pb-3 border-b border-slate-100">
               <h2 className="text-lg font-bold text-slate-900 flex items-center gap-2">
                 <Package className="w-5 h-5 text-brand-600" />
-                Order Summary
+                Rental Summary
               </h2>
               <span className="text-xs font-semibold text-slate-500">
                 {orderSummaryData.itemCount} {orderSummaryData.itemCount === 1 ? "Product" : "Products"}
@@ -308,7 +311,7 @@ export default function Checkout() {
                 iconPosition="left"
                 className="w-full justify-center text-base shadow-sm"
               >
-                Continue Shopping
+                Continue Browsing
               </Button>
             </Link>
             <Link to="/" className="w-full sm:w-auto">
@@ -643,13 +646,13 @@ export default function Checkout() {
                 iconPosition="left"
                 className="w-full justify-center shadow-md shadow-brand-500/20 text-base"
               >
-                {isSubmitting ? "Submitting Request..." : "Place Rental Request"}
+                {isSubmitting ? "Submitting Request..." : "Submit Rental Request"}
               </Button>
             </div>
           </form>
 
           {/* ── RIGHT COLUMN: Sticky Order Summary ─────────────────────────── */}
-          <aside aria-label="Order summary" className="mt-8 lg:mt-0">
+          <aside aria-label="Rental summary" className="mt-8 lg:mt-0">
             <div className="bg-white rounded-3xl border border-slate-200/90 p-6 shadow-xs lg:sticky lg:top-24">
               <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-100">
                 <h2 className="text-lg font-bold text-slate-900">Rental Summary</h2>
@@ -737,7 +740,7 @@ export default function Checkout() {
                   className="w-full justify-center shadow-md shadow-brand-500/20 text-base"
                   onClick={handlePlaceOrder}
                 >
-                  {isSubmitting ? "Submitting Request..." : "Place Rental Request"}
+                  {isSubmitting ? "Submitting Request..." : "Submit Rental Request"}
                 </Button>
 
                 <Link to="/cart" className="block text-center">

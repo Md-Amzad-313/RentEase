@@ -453,12 +453,12 @@ export default function Admin() {
                   <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
                     Admin Dashboard
                   </h1>
-                  <span className="hidden sm:inline-flex items-center gap-1 text-xs font-bold px-2.5 py-0.5 rounded-full bg-brand-50 text-brand-700 border border-brand-200">
-                    <Sparkles className="w-3 h-3" /> Live Operations
+                  <span className="hidden sm:inline-flex items-center gap-1 text-xs font-bold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200">
+                    <Sparkles className="w-3 h-3 text-brand-600" /> Frontend Demo Preview
                   </span>
                 </div>
                 <p className="text-slate-600 text-sm mt-1">
-                  Manage rentals, products, customers and service requests.
+                  Sample management portal demonstrating product inventory, rental requests, and servicing workflows.
                 </p>
               </div>
             </div>
@@ -1363,7 +1363,7 @@ export default function Admin() {
                       setRequestDetailsModal({ isOpen: false, request: null });
                     }}
                   >
-                    Approve Order
+                    Approve Request
                   </Button>
                   <Button
                     variant="outline"

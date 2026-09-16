@@ -11,8 +11,6 @@ export const PLATFORM_INFO = {
 };
 
 export const FEATURED_CATEGORIES = [
-  { id: 'furniture', name: 'Furniture', count: '120+ Items' },
-  { id: 'appliances', name: 'Appliances', count: '80+ Items' },
-  { id: 'electronics', name: 'Electronics', count: '45+ Items' },
-  { id: 'wfh', name: 'Work From Home', count: '30+ Combos' },
+  { id: 'furniture', name: 'Furniture', count: '3 Items' },
+  { id: 'appliances', name: 'Appliances', count: '3 Items' },
 ];

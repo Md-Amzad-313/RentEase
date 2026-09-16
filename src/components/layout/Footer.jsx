@@ -14,11 +14,11 @@ export default function Footer() {
   ];
 
   const rentalCategories = [
-    { name: 'Furniture', path: '/categories' },
-    { name: 'Appliances', path: '/categories' },
-    { name: 'Electronics', path: '/categories' },
-    { name: 'Work from Home', path: '/categories' },
-    { name: 'Living Room Packages', path: '/categories' },
+    { name: 'Beds & Mattresses', path: '/products?category=Furniture' },
+    { name: 'Sofas & Seating', path: '/products?category=Furniture' },
+    { name: 'Study & Work Desks', path: '/products?category=Furniture' },
+    { name: 'Refrigerators', path: '/products?category=Appliances' },
+    { name: 'Washing Machines', path: '/products?category=Appliances' },
   ];
 
   const supportLinks = [
@@ -40,8 +40,8 @@ export default function Footer() {
               <Truck className="w-5 h-5" />
             </div>
             <div>
-              <h4 className="text-sm font-semibold text-slate-900">Free Delivery & Setup</h4>
-              <p className="text-xs text-slate-500">Fast, hassle-free doorstep setup</p>
+              <h4 className="text-sm font-semibold text-slate-900">Doorstep Delivery & Setup</h4>
+              <p className="text-xs text-slate-500">Delivered and assembled at your address</p>
             </div>
           </div>
 
@@ -50,8 +50,8 @@ export default function Footer() {
               <RefreshCw className="w-5 h-5" />
             </div>
             <div>
-              <h4 className="text-sm font-semibold text-slate-900">Free Relocation & Upgrades</h4>
-              <p className="text-xs text-slate-500">Flexible tenures tailored for you</p>
+              <h4 className="text-sm font-semibold text-slate-900">Flexible Tenure Options</h4>
+              <p className="text-xs text-slate-500">3, 6, and 12-month extension plans</p>
             </div>
           </div>
 
@@ -60,8 +60,8 @@ export default function Footer() {
               <ShieldCheck className="w-5 h-5" />
             </div>
             <div>
-              <h4 className="text-sm font-semibold text-slate-900">Free Annual Maintenance</h4>
-              <p className="text-xs text-slate-500">Mint condition guaranteed always</p>
+              <h4 className="text-sm font-semibold text-slate-900">Routine Maintenance</h4>
+              <p className="text-xs text-slate-500">Inspected and serviced during rental</p>
             </div>
           </div>
         </div>
@@ -82,8 +82,7 @@ export default function Footer() {
             </Link>
             <p className="text-sm font-medium text-brand-700">Live better. Own less.</p>
             <p className="text-sm text-slate-500 leading-relaxed max-w-sm">
-              RentEase is a modern monthly rental platform making home furnishing
-              effortless, flexible, and affordable for urban lifestyles.
+              RentEase provides flexible monthly furniture and appliance rentals for students and working professionals.
             </p>
           </div>
 

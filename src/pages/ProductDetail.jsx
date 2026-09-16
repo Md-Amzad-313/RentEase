@@ -34,7 +34,7 @@ const SERVICE_FEATURES = [
   { icon: CheckCircle2,  label: "Quality Checked",     desc: "Every item inspected before delivery" },
   { icon: Truck,         label: "Doorstep Delivery",   desc: "Delivered at a time convenient for you" },
   { icon: CalendarClock, label: "Flexible Plans",      desc: "Switch or extend your tenure anytime" },
-  { icon: RotateCcw,     label: "Easy Relocation",     desc: "Move your rental hassle-free" },
+  { icon: RotateCcw,     label: "Easy Relocation",     desc: "Move your rental to a new address" },
   { icon: Wrench,        label: "Maintenance Support", desc: "Service visits included in your plan" },
   { icon: ShieldCheck,   label: "Damage Cover",        desc: "Covered against accidental damage" },
 ];

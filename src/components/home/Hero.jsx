@@ -68,10 +68,10 @@ function HeroVisual() {
                 <Package className="w-8 h-8" />
               </div>
               <p className="text-base font-semibold text-slate-800">
-                Premium Furnished Living Spaces
+                Rental-Ready Furniture & Appliances
               </p>
               <p className="text-xs text-slate-500 mt-1 max-w-xs">
-                Quality furniture and essential appliances on your terms.
+                Beds, sofas, desks, refrigerators and more — delivered to your door.
               </p>
             </div>
           )}
@@ -102,7 +102,7 @@ function HeroVisual() {
                 Doorstep Setup Included
               </p>
               <p className="text-[11px] text-slate-500 leading-snug mt-0.5">
-                Delivery, assembly & hassle-free pickup
+                Delivery, assembly & scheduled pickup
               </p>
             </div>
           </div>
@@ -201,16 +201,16 @@ export default function Hero() {
 
             {/* Main Heading */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.15] mb-5 text-balance">
-              Everything you need.{' '}
+              Furniture & appliances on rent.{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-indigo-700">
-                Without the commitment.
+                Month to month.
               </span>
             </h1>
 
             {/* Supporting Text */}
             <p className="text-base sm:text-lg lg:text-xl text-slate-600 leading-relaxed max-w-2xl mb-8 text-balance">
-              Rent quality furniture and appliances on flexible monthly plans. Get
-              what you need, delivered to your doorstep.
+              Skip the large upfront purchase. Rent beds, sofas, desks,
+              refrigerators and more on flexible 3, 6 or 12-month plans.
             </p>
 
             {/* CTA Buttons */}
@@ -227,7 +227,7 @@ export default function Hero() {
                 </Button>
               </Link>
 
-              <Link to="/categories" className="w-full sm:w-auto">
+              <Link to="/about" className="w-full sm:w-auto">
                 <Button
                   variant="outline"
                   size="lg"

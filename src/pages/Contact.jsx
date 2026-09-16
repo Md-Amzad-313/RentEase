@@ -318,11 +318,10 @@ export default function Contact() {
                     <CheckCircle2 className="w-8 h-8" />
                   </div>
                   <h3 className="text-xl font-bold text-slate-900 mb-2">
-                    Message Sent Successfully
+                    Message Submitted (Demo)
                   </h3>
                   <p className="text-sm text-slate-600 max-w-md mx-auto mb-6 leading-relaxed">
-                    Thanks for reaching out! Your message has been received. Our team will review your
-                    inquiry and follow up with you.
+                    Your message has been recorded in this demo interface. No external email or ticket system is connected in this preview.
                   </p>
                   <Button
                     variant="primary"

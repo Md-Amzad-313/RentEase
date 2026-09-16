@@ -62,13 +62,12 @@ export default function HowItWorks() {
             id="how-it-works-heading"
             className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4"
           >
-            Renting made simple
+            How renting works
           </h2>
 
           {/* Supporting Text */}
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed text-balance">
-            From choosing your essentials to getting them delivered, RentEase
-            keeps the entire rental experience simple and flexible.
+            Select what you need, choose a 3, 6, or 12-month rental duration, and get doorstep delivery with assembly.
           </p>
         </div>
 
@@ -116,7 +115,7 @@ export default function HowItWorks() {
                 <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-medium text-slate-400">
                   <span>Step {index + 1} of 3</span>
                   <span className="text-brand-600 font-semibold opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
-                    Simple & Flexible <ArrowRight className="w-3.5 h-3.5" />
+                    Rental journey <ArrowRight className="w-3.5 h-3.5" />
                   </span>
                 </div>
               </div>
