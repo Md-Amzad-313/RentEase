@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 import { POPULAR_PRODUCTS } from '../data/products';
 import ProductCard from '../components/home/ProductCard';
@@ -6,28 +7,56 @@ import { X } from 'lucide-react';
 
 /**
  * Products Page – Rental Collection
- * Displays all mock products with a simple category filter.
+ * Displays all mock products with category, price, and sorting filters.
+ * Supports URL search parameter (?category=Furniture / ?category=Appliances).
  */
 export default function Products() {
-    const categories = ['All', 'Furniture', 'Appliances'];
-  const [selected, setSelected] = useState('All');
+  const categories = ['All', 'Furniture', 'Appliances'];
+  const [searchParams, setSearchParams] = useSearchParams();
+  const initialCategory = searchParams.get('category');
+
+  const [selected, setSelected] = useState(
+    initialCategory && ['Furniture', 'Appliances'].includes(initialCategory) ? initialCategory : 'All'
+  );
   const priceRanges = ['All', 'Under ₹800', '₹800 – ₹1 200', '₹1 200 – ₹1 600', 'Above ₹1 600'];
   const [priceRange, setPriceRange] = useState('All');
   const sortOptions = ['Recommended', 'Price Low-High', 'Price High-Low', 'Rating High-Low', 'Name A-Z'];
   const [sortOption, setSortOption] = useState('Recommended');
 
+  // Sync state if URL query params change (e.g. from /categories navigation)
+  useEffect(() => {
+    const cat = searchParams.get('category');
+    if (cat && ['Furniture', 'Appliances'].includes(cat)) {
+      setSelected(cat);
+    } else if (!cat) {
+      setSelected('All');
+    }
+  }, [searchParams]);
+
+  const handleCategorySelect = (cat) => {
+    setSelected(cat);
+    const newParams = new URLSearchParams(searchParams);
+    if (cat === 'All') {
+      newParams.delete('category');
+    } else {
+      newParams.set('category', cat);
+    }
+    setSearchParams(newParams);
+  };
+
   const filteredProducts = POPULAR_PRODUCTS.filter((p) => {
-  const categoryMatch = selected === 'All' ? true : p.category === selected;
-  const priceMatch = (() => {
-    if (priceRange === 'All') return true;
-    if (priceRange === 'Under ₹800') return p.monthlyRent < 800;
-    if (priceRange === '₹800 – ₹1 200') return p.monthlyRent >= 800 && p.monthlyRent <= 1200;
-    if (priceRange === '₹1 200 – ₹1 600') return p.monthlyRent >= 1200 && p.monthlyRent <= 1600;
-    if (priceRange === 'Above ₹1 600') return p.monthlyRent > 1600;
-    return true;
-  })();
-  return categoryMatch && priceMatch;
-});
+    const categoryMatch = selected === 'All' ? true : p.category === selected;
+    const priceMatch = (() => {
+      if (priceRange === 'All') return true;
+      if (priceRange === 'Under ₹800') return p.monthlyRent < 800;
+      if (priceRange === '₹800 – ₹1 200') return p.monthlyRent >= 800 && p.monthlyRent <= 1200;
+      if (priceRange === '₹1 200 – ₹1 600') return p.monthlyRent >= 1200 && p.monthlyRent <= 1600;
+      if (priceRange === 'Above ₹1 600') return p.monthlyRent > 1600;
+      return true;
+    })();
+    return categoryMatch && priceMatch;
+  });
+
   // Apply sorting based on selected option
   const sortedProducts = [...filteredProducts].sort((a, b) => {
     switch (sortOption) {
@@ -49,6 +78,7 @@ export default function Products() {
     setSelected('All');
     setPriceRange('All');
     setSortOption('Recommended');
+    setSearchParams({});
   };
 
   return (
@@ -78,7 +108,7 @@ export default function Products() {
               {categories.map((cat) => (
                 <button
                   key={cat}
-                  onClick={() => setSelected(cat)}
+                  onClick={() => handleCategorySelect(cat)}
                   className={`px-3.5 py-1.5 rounded-xl text-sm font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 ${
                     selected === cat
                       ? 'bg-brand-600 text-white shadow-xs'
