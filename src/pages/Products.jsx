@@ -67,80 +67,106 @@ export default function Products() {
           </p>
         </div>
 
-        {/* Filters */}
-        <div className="flex flex-wrap items-center justify-center gap-4 mb-8">
-          {/* Category Tabs */}
-          <div className="flex gap-2">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setSelected(cat)}
-                className={`px-3 py-1 rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 ${
-                  selected === cat
-                    ? 'bg-brand-600 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
+        {/* Filters & Sort Toolbar */}
+        <div className="bg-slate-50/80 border border-slate-200/90 rounded-2xl p-4 sm:p-6 mb-10 shadow-xs">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-5">
+            {/* Category Filter Pills */}
+            <div className="flex flex-wrap items-center gap-2 w-full lg:w-auto justify-center lg:justify-start">
+              <span className="text-xs font-bold uppercase tracking-wider text-slate-500 mr-1 hidden sm:inline-block">
+                Category:
+              </span>
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setSelected(cat)}
+                  className={`px-3.5 py-1.5 rounded-xl text-sm font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 ${
+                    selected === cat
+                      ? 'bg-brand-600 text-white shadow-xs'
+                      : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
+
+            {/* Price Range Filter Pills */}
+            <div className="flex flex-wrap items-center gap-2 w-full lg:w-auto justify-center">
+              <span className="text-xs font-bold uppercase tracking-wider text-slate-500 mr-1 hidden sm:inline-block">
+                Price:
+              </span>
+              {priceRanges.map((range) => (
+                <button
+                  key={range}
+                  onClick={() => setPriceRange(range)}
+                  className={`px-3 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 ${
+                    priceRange === range
+                      ? 'bg-brand-600 text-white shadow-xs'
+                      : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
+                  }`}
+                >
+                  {range}
+                </button>
+              ))}
+            </div>
+
+            {/* Sort & Reset Actions */}
+            <div className="flex items-center gap-2.5 w-full lg:w-auto justify-center lg:justify-end">
+              <div className="flex items-center gap-2">
+                <label htmlFor="sort-select" className="text-xs font-bold uppercase tracking-wider text-slate-500 sr-only">
+                  Sort by
+                </label>
+                <select
+                  id="sort-select"
+                  value={sortOption}
+                  onChange={(e) => setSortOption(e.target.value)}
+                  className="text-xs sm:text-sm rounded-xl border border-slate-300 bg-white px-3 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:border-brand-500 focus:ring-brand-500/20 font-medium"
+                >
+                  {sortOptions.map((opt) => (
+                    <option key={opt} value={opt}>
+                      {opt}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              {(selected !== 'All' || priceRange !== 'All' || sortOption !== 'Recommended') && (
+                <button
+                  onClick={resetFilters}
+                  className="px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-600 hover:text-rose-600 hover:bg-rose-50 border border-slate-200 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 flex items-center gap-1"
+                >
+                  <X className="w-3.5 h-3.5" />
+                  <span>Clear</span>
+                </button>
+              )}
+            </div>
           </div>
-          {/* Price Range Tabs */}
-          <div className="flex gap-2">
-            {priceRanges.map((range) => (
-              <button
-                key={range}
-                onClick={() => setPriceRange(range)}
-                className={`px-3 py-1 rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 ${
-                  priceRange === range
-                    ? 'bg-brand-600 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-              >
-                {range}
-              </button>
-            ))}
-          </div>
-          {/* Sort Select */}
-          <select
-            value={sortOption}
-            onChange={(e) => setSortOption(e.target.value)}
-            className="rounded-md border-gray-300 focus-visible:ring-2 focus-visible:ring-brand-500"
-          >
-            {sortOptions.map((opt) => (
-              <option key={opt} value={opt}>
-                {opt}
-              </option>
-            ))}
-          </select>
-          {/* Clear Filters */}
-          {(selected !== 'All' || priceRange !== 'All' || sortOption !== 'Recommended') && (
-            <button
-              onClick={resetFilters}
-              className="px-3 py-1 rounded-md text-sm font-medium bg-gray-200 text-gray-800 hover:bg-gray-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
-            >
-              Clear Filters
-            </button>
-          )}
         </div>
 
         {/* Result Count */}
-        <p className="text-sm text-slate-600 mb-4 text-center">
-          {sortedProducts.length} rentals available
-        </p>
+        <div className="flex items-center justify-between text-xs sm:text-sm text-slate-500 mb-6 px-1">
+          <p>
+            Showing <strong className="text-slate-900">{sortedProducts.length}</strong> {sortedProducts.length === 1 ? 'rental' : 'rentals'}
+          </p>
+          {(selected !== 'All' || priceRange !== 'All') && (
+            <span className="text-xs font-medium text-brand-700 bg-brand-50 border border-brand-200 px-2.5 py-0.5 rounded-full">
+              Filtered ({selected !== 'All' ? selected : ''}{selected !== 'All' && priceRange !== 'All' ? ' · ' : ''}{priceRange !== 'All' ? priceRange : ''})
+            </span>
+          )}
+        </div>
 
         {/* Product Grid or Empty State */}
         {sortedProducts.length === 0 ? (
-          <div className="text-center py-20">
-            <p className="text-xl font-medium text-slate-700 mb-2">No rentals found</p>
-            <p className="text-slate-500 mb-4">
-              Try adjusting your filters or clear them to see available rentals.
+          <div className="text-center py-20 bg-slate-50 rounded-3xl border border-slate-200/80">
+            <p className="text-xl font-bold text-slate-800 mb-2">No rentals found</p>
+            <p className="text-slate-500 text-sm mb-6 max-w-md mx-auto">
+              Try adjusting your category or price filters to explore available furniture and appliances.
             </p>
             <button
               onClick={resetFilters}
-              className="px-4 py-2 rounded-md bg-brand-600 text-white hover:bg-brand-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
+              className="px-5 py-2.5 rounded-xl bg-brand-600 text-white font-semibold hover:bg-brand-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 shadow-xs"
             >
-              Clear Filters
+              Reset Filters
             </button>
           </div>
         ) : (
